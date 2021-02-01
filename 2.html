@@ -6,15 +6,16 @@
 </head>
 <body>
 <script>
-    let a = parseInt(prompt("nhập a"));
-    let sum = 0;
-    for (let i = 1;i<=a;i++){
-
-        sum += a ;
-        sum += a + a--;
-
+    n = parseInt(prompt('Nhap n'))
+    Sum = 1
+    mul = 1
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= i; j++) {
+            mul *= j
+        }
+        sum += mul
     }
-    document.write(sum);
+    console.log(sum)
     // 2.kieerm tra tam gia
 // let a =prompt("canh a");
 //     let b = prompt("nhap b ");
