@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<div id="res">
+
+</div>
 <script >
     function  Student(mssv, name, toan, ly ,hoa) {
         this.mssv = mssv;
@@ -44,12 +47,27 @@
                 }
             }
         }
+        this.SX = function () {
+            let temp;
+            for (let i=0;i<this.dssv.length-1;i++) {
+                for (let j=i+1;j<this.dssv.length;j++){
+                    if (this.dssv[i].dtb<this.dssv[j].dtb) {
+                        temp=this.dssv[i];
+                        this.dssv[i]=this.dssv[j];
+                        this.dssv[j]=temp;
+                    }
+                }
+            }
+            this.dssv.sort(function (a, b) {return b.dtb-a.dtb});
+        }
     }
     let qlsv = new QLSV();
     document.getElementById("res").innerHTML = qlsv.show()
     qlsv.add(new Student(4,"Vi" ,9,9,9));
-    qlsv.edit(2,new Student(2,"1",1,1,1));
-    document.getElementById("res").innerHTML = qlsv.show()
+    qlsv.edit(2,new Student(2,"Ngân",5,5,5));
+    //qlsv.dssv.dtb.sort(function (a,b) {return b-a});
+    qlsv.SX();
+    document.getElementById("res").innerHTML = qlsv.show();
 </script>
 
 </body>
